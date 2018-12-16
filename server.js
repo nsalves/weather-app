@@ -3,7 +3,6 @@ const app = express();
 const bodyParser = require('body-parser');
 const request = require('request');
 const key = '';
-
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,7 +17,6 @@ app.post('/', function (req, res) {
     let city = req.body.city;
     let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${key}`
     let encodedurl = encodeURI(url);
-    console.log(encodedurl);
 
     request(encodedurl, function (err, response, body) {
         if(err){
@@ -34,18 +32,13 @@ app.post('/', function (req, res) {
             let windSpeed = weather.wind.speed;
             let sunrise = weather.sys.sunrise;
             let sunset = weather.sys.sunset;
-
             let sunrisetime = new Date(0);
             let sunsettime = new Date(0);
 
             sunrisetime.setUTCSeconds(sunrise);
             sunsettime.setUTCSeconds(sunset);
 
-           
             res.render('index',{lon:lon, lat:lat, temp:temp, windSpeed:windSpeed, sunrisetime:sunrisetime, sunsettime:sunsettime, city:city, error:null });
-
-            //let weatherText = `It's ${weather.main.temp} degrees in ${weather.name}!`;
-            //res.render('index', {weather: weatherText, error: null});
           }
         }
 
