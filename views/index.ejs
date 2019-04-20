@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Current Weather</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <div class="header">
+        <h1 class="app-title">Current Weather</h1>
+        <h2 class="status">
+          <% if(typeof statusMessage !=='undefined'){ %>
+          <%= statusMessage %>
+          <% } %>
+        </h2>
+      </div>
+      <div class="body">
+        <div class="col-1">
+          <% if(typeof iconClass !=='undefined'){ %>
+          <div class="icon-container <%= iconClass %>"></div>
+          <% } %>
+          <div class="weather-message">
+            <% if(typeof city !=='undefined'){ %>
+            <%= description %>
+            <% } %>
+          </div>
+        </div>
+        <div class="col-2">
+          <form action="/" method="post">
+            <input name="city" type="text" class="" placeholder="Enter a City" required>
+            <input type="submit" class="" value="Get Weather">
+          </form>
+          <div class="info-container">
+            <div class="temperature">
+              <% if(typeof city !=='undefined'){ %>
+              <%= temp %>
+              <% } %> &degC
+            </div>
+            <div class="wind-speed">Wind Speed:
+              <span class="value">
+                <% if(typeof city !=='undefined'){ %>
+                <%= windSpeed %>
+                <% } %> m/s
+              </span>
+            </div>
+            <hr>
+            <div class="wind-speed">Humidity:
+              <span class="value">
+                <% if(typeof city !=='undefined'){ %>
+                <%= humidity %>
+                <% } %> %
+              </span>
+            </div>
+            <hr>
+            <div class="wind-speed">Tmax & Tmin:
+              <span class="value">
+                <% if(typeof city !=='undefined'){ %>
+                <%= tmin %> - <%= tmax %> 
+                <% } %> &degC
+              </span>
+            </div>
+            <hr>
+            <div class="wind-speed">Conditons:
+              <span class="value">
+                <% if(typeof city !=='undefined'){ %>
+                <%= conditions %>
+                <% } %>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

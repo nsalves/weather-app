@@ -1,0 +1,626 @@
+body{
+  height: 100vh;
+  margin: 0;
+  color: white;
+}
+
+form{
+  padding: 40px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+hr{
+  margin: 0 80px;
+}
+
+input[type = "text"]{
+  background-color: initial;
+  border: 0;
+  border-bottom: 1px solid white;
+  color: white;
+  width: 40%;
+}
+
+input[type = "submit"]{
+  background-color: #37474F;
+  border: 0;
+  color: #fff;
+  border-radius: 15px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+input[type = "submit"]:hover{
+  cursor: pointer;
+  background-color: #2d3940;
+  color: #fff;
+}
+
+.wrapper{
+  background-color: #2b323b;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.container{
+  max-width: 900px;
+  height: 90vh;
+  background: #fff;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 13px 40px -13px rgba(0,0,0,.75);
+}
+
+.col-1{
+  width: 40%;
+  background-color: #455A64;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.col-2{
+  width: 60%;
+  background-color: #455A64;
+  height: 100%; 
+}
+
+.header{
+  width: 100%;
+  background-color: #37474F;
+  height: 175px;
+  display: flex;
+  flex-direction: column;
+}
+
+.body{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 695px;
+}
+
+.app-title{
+  margin: auto;
+}
+
+.info-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.temperature{
+  margin: auto;
+  padding: 40px;
+  font-size: 50px;
+}
+
+.wind-speed{
+  margin: 10px auto;
+}
+
+.value{
+  margin-left: 40px;
+}
+
+.weather-icon{
+  height: 50%;
+}
+
+.weather-message{
+  text-align: center;
+  font-size: 25px;
+}
+
+.status{
+  text-align: center;
+  font-size: 20px;
+}
+
+.icon-container{
+  margin-top: 180px;
+  margin-bottom: 110px;
+}
+
+/*--------------------Animations--------------------------*/
+
+/*_____________SUNNY_____________*/
+
+.sunny {
+  animation: sunny 15s linear infinite;
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%); 
+  height: 140px;
+  width: 20px; 
+  left: 90px;  
+  transition: 0.5s;
+}
+.sunny:before {
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+  content: ''; 
+  height: 140px; 
+  width: 20px;
+  opacity: 1; 
+  position: absolute;
+  bottom: 0px;
+  left: 0px; 
+  transform: rotate(90deg);
+}
+.sunny:after {
+  background: #FFEE44; 
+  border-radius: 50%; 
+  box-shadow: rgba(255,255,0,0.2) 0 0 0 15px;
+  content: '';  
+  height: 80px;
+  width: 80px;  
+  position: absolute; 
+  left: -30px; 
+  top: 30px;
+}
+@keyframes sunny { 
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/*_____________CLOUDY_____________*/
+
+.cloudy {
+  animation: cloudy 5s ease-in-out infinite;
+  background: #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 
+    #FFFFFF 65px -15px 0 -5px, 
+    #FFFFFF 25px -25px, 
+    #FFFFFF 30px 10px, 
+    #FFFFFF 60px 15px 0 -10px, 
+    #FFFFFF 85px 5px 0 -5px;
+  height: 50px;
+  width: 50px; 
+  margin-right: 70px;
+  left: 255px;
+  top: 70px;
+  transition: 0.5s;
+}
+.cloudy:after {
+  animation: cloudy_shadow 5s ease-in-out infinite;
+  background: #000000;
+  border-radius: 50%;
+  content: '';
+  height: 15px;
+  width: 120px;
+  opacity: 0.2;
+  position: absolute;
+  left: 5px; 
+  bottom: -60px;
+  transform: scale(1);
+}
+@keyframes cloudy {
+  50% { transform: translateY(-20px); }
+}
+@keyframes cloudy_shadow {
+  50% { transform: translateY(20px) scale(.7); opacity:.05; }
+}
+
+/*_____________SMOKE_____________*/
+
+.smoke {
+  animation: smoke 5s ease-in-out infinite;
+  background: #AF916F;
+  border-radius: 50%;
+  box-shadow: 
+    #AF916F 65px -15px 0 -5px, 
+    #AF916F 25px -25px, 
+    #AF916F 30px 10px, 
+    #AF916F 60px 15px 0 -10px, 
+    #AF916F 85px 5px 0 -5px;
+  height: 50px;
+  width: 50px;
+  margin-right: 70px;
+  left: 200px;
+  top: 70px;
+  transition: 0.5s;
+}
+.smoke:after {
+  animation: smoke_shadow 5s ease-in-out infinite;
+  background: #000000;
+  border-radius: 50%;
+  content: '';
+  height: 15px;
+  width: 120px;
+  opacity: 0.2;
+  position: absolute;
+  left: 5px; 
+  bottom: -60px;
+  transform: scale(1);
+}
+@keyframes smoke {
+  50% { transform: translateY(-20px); }
+}
+@keyframes smoke_shadow {
+  50% { transform: translateY(20px) scale(.7); opacity:.05; }
+}
+
+/*_____________RAINY_____________*/
+
+.rainy {
+  animation: rainy 5s ease-in-out infinite 1s;
+  background: #CCCCCC; 
+  border-radius: 50%;
+  box-shadow: 
+    #CCCCCC 65px -15px 0 -5px, 
+    #CCCCCC 25px -25px, 
+    #CCCCCC 30px 10px, 
+    #CCCCCC 60px 15px 0 -10px, 
+    #CCCCCC 85px 5px 0 -5px;
+  height: 50px;
+  width: 50px;
+  margin-right: 70px;
+  left: 427px;
+  top: 70px;
+  transition: 0.5s;
+}
+.rainy:after {
+  animation: rainy_shadow 5s ease-in-out infinite 1s;
+  background: #000000;
+  border-radius: 50%;
+  content: '';
+  height: 15px;
+  width: 120px;
+  opacity: 0.2;
+  position: absolute;
+  left: 5px; 
+  bottom: -60px;
+  transform: scale(1);
+}
+.rainy:before {
+  animation: rainy_rain .7s infinite linear;
+  content: '';
+  background: #CCCCCC;
+  border-radius: 50%;
+  display: block;
+  height: 6px;
+  width: 3px;
+  opacity: 0.3;
+  transform: scale(.9);
+}
+@keyframes rainy {
+  50% { transform: translateY(-20px); }
+}
+@keyframes rainy_shadow {
+  50% { transform: translateY(20px) scale(.7); opacity: 0.05; }
+}
+@keyframes rainy_rain {
+  0% {  
+    box-shadow: 
+      rgba(0,0,0,0) 30px 30px, 
+      rgba(0,0,0,0) 40px 40px,  
+      #000 50px 75px, 
+      #000 55px 50px, 
+      #000 70px 100px, 
+      #000 80px 95px, 
+      #000 110px 45px, 
+      #000 90px 35px; 
+  }
+  25% {  
+      box-shadow: 
+      #000 30px 45px,
+      #000 40px 60px,
+      #000 50px 90px,
+      #000 55px 65px,
+      rgba(0,0,0,0) 70px 120px,
+      rgba(0,0,0,0) 80px 120px,
+      #000 110px 70px,
+      #000 90px 60px;
+  }
+  26% {  
+    box-shadow:
+      #000 30px 45px,
+      #000 40px 60px,
+      #000 50px 90px,
+      #000 55px 65px,
+      rgba(0,0,0,0) 70px 40px,
+      rgba(0,0,0,0) 80px 20px,
+      #000 110px 70px,
+      #000 90px 60px; 
+  }
+  50% { 
+    box-shadow:
+      #000 30px 70px,
+      #000 40px 80px,
+      rgba(0,0,0,0) 50px 100px,
+      #000 55px 80px,
+      #000 70px 60px,
+      #000 80px 45px,
+      #000 110px 95px,
+      #000 90px 85px;
+  }
+  51% {
+    box-shadow:
+      #000 30px 70px,
+      #000 40px 80px,
+      rgba(0,0,0,0) 50px 45px,
+      #000 55px 80px,
+      #000 70px 60px,
+      #000 80px 45px,
+      #000 110px 95px,
+      #000 90px 85px;
+  }
+  75% {
+    box-shadow:
+      #000 30px 95px,
+      #000 40px 100px,
+      #000 50px 60px,
+      rgba(0,0,0,0) 55px 95px,
+      #000 70px 80px,
+      #000 80px 70px,
+      rgba(0,0,0,0) 110px 120px,
+      rgba(0,0,0,0) 90px 110px;
+  }
+  76% {
+    box-shadow:
+      #000 30px 95px,
+      #000 40px 100px,
+      #000 50px 60px,
+      rgba(0,0,0,0) 55px 35px,
+      #000 70px 80px,
+      #000 80px 70px,
+      rgba(0,0,0,0) 110px 25px,
+      rgba(0,0,0,0) 90px 15px;
+  }
+  100% {
+    box-shadow:
+      rgba(0,0,0,0) 30px 120px,
+      rgba(0,0,0,0) 40px 120px,
+      #000 50px 75px,
+      #000 55px 50px,
+      #000 70px 100px,
+      #000 80px 95px,
+      #000 110px 45px,
+      #000 90px 35px;
+  }
+}
+
+/*_____________STORMY_____________*/
+
+.stormy {
+  animation: stormy 5s ease-in-out infinite;
+  background: #222222;
+  border-radius: 50%;
+  box-shadow: 
+    #222222 65px -15px 0 -5px, 
+    #222222 25px -25px, 
+    #222222 30px 10px, 
+    #222222 60px 15px 0 -10px, 
+    #222222 85px 5px 0 -5px;
+  height: 50px;  
+  width: 50px; 
+  margin-right: 70px;
+  left: 947px;
+  top: 70px;
+  transition: 0.5s;
+}
+.storm-align {
+  margin-top: 25%;
+}
+
+.stormy:after {
+  animation: stormy_shadow 5s ease-in-out infinite;
+  background: #000;
+  border-radius: 50%;
+  content: '';
+  height: 15px; 
+  width: 120px; 
+  opacity: 0.2;
+  position: absolute;
+  left: 5px; 
+  bottom: -60px;
+  transform: scale(1);
+}
+.stormy:before {
+  animation: stormy_thunder 2s steps(1, end) infinite; 
+  border-left: 0px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 43px solid yellow; 
+  box-shadow: yellow -7px -32px;
+  content: '';
+  display: block;
+  height: 0;
+  width: 0;
+  position: absolute;
+  left: 57px;
+  top: 70px;
+  transform: rotate(14deg);
+  transform-origin: 50% -60px;
+}
+@keyframes stormy {
+  50% { transform: translateY(-20px); } 
+}  
+@keyframes stormy_shadow {
+  50% { transform: translateY(20px) scale(.7); opacity: 0.05; }
+}
+@keyframes stormy_thunder {
+  0%  { transform: rotate(20deg); opacity:1; }
+  5%  { transform: rotate(-34deg); opacity:1; }
+  10% { transform: rotate(0deg); opacity:1; }
+  15% { transform: rotate(-34deg); opacity:0; }
+}
+
+/*_____________SNOWY_____________*/
+.snowy {
+  animation: snowy 5s ease-in-out infinite 1s;
+  background: #FFFFFF; 
+  border-radius: 50%;
+  box-shadow: 
+    #FFFFFF 65px -15px 0 -5px, 
+    #FFFFFF 25px -25px, 
+    #FFFFFF 30px 10px, 
+    #FFFFFF 60px 15px 0 -10px, 
+    #FFFFFF 85px 5px 0 -5px;
+  height: 50px;
+  width: 50px;
+  margin-right: 70px;
+  /* margin-bottom: 20px; */
+  left: 1112px;
+  top: 70px;
+  transition: 0.5s;
+}
+.snowy:after {
+  animation: snowy_shadow 5s ease-in-out infinite 1s;
+  background: #000000;
+  border-radius: 50%;
+  content: '';
+  height: 15px;
+  width: 120px;
+  opacity: 0.2;
+  position: absolute;
+  left: 8px;
+  bottom: -60px;
+  transform: scale(1);
+}
+.snowy:before {
+  animation: snowy_snow 2s infinite linear;
+  content: '';
+  border-radius: 50%;
+  display: block;
+  height: 7px;
+  width: 7px;
+  opacity: 0.8;
+  transform: scale(.9);
+}
+@keyframes snowy {
+  50% { transform: translateY(-20px); }
+}
+@keyframes snowy_shadow {
+  50% { transform: translateY(20px) scale(.7); opacity: 0.05; }
+}
+@keyframes snowy_snow {
+  0% {  
+    box-shadow: 
+      rgba(238,238,238,0) 30px 30px, 
+      rgba(238,238,238,0) 40px 40px,  
+      #EEEEEE 50px 75px, 
+      #EEEEEE 55px 50px, 
+      #EEEEEE 70px 100px, 
+      #EEEEEE 80px 95px, 
+      #EEEEEE 110px 45px, 
+      #EEEEEE 90px 35px; 
+  }
+  25% {  
+      box-shadow: 
+      #EEEEEE 30px 45px,
+      #EEEEEE 40px 60px,
+      #EEEEEE 50px 90px,
+      #EEEEEE 55px 65px,
+      rgba(238,238,238,0) 70px 120px,
+      rgba(238,238,238,0) 80px 120px,
+      #EEEEEE 110px 70px,
+      #EEEEEE 90px 60px;
+  }
+  26% {  
+    box-shadow:
+      #EEEEEE 30px 45px,
+      #EEEEEE 40px 60px,
+      #EEEEEE 50px 90px,
+      #EEEEEE 55px 65px,
+      rgba(238,238,238,0) 70px 40px,
+      rgba(238,238,238,0) 80px 20px,
+      #EEEEEE 110px 70px,
+      #EEEEEE 90px 60px; 
+  }
+  50% { 
+    box-shadow:
+      #EEEEEE 30px 70px,
+      #EEEEEE 40px 80px,
+      rgba(238,238,238,0) 50px 100px,
+      #EEEEEE 55px 80px,
+      #EEEEEE 70px 60px,
+      #EEEEEE 80px 45px,
+      #EEEEEE 110px 95px,
+      #EEEEEE 90px 85px;
+  }
+  51% {
+    box-shadow:
+      #EEEEEE 30px 70px,
+      #EEEEEE 40px 80px,
+      rgba(238,238,238,0) 50px 45px,
+      #EEEEEE 55px 80px,
+      #EEEEEE 70px 60px,
+      #EEEEEE 80px 45px,
+      #EEEEEE 110px 95px,
+      #EEEEEE 90px 85px;
+  }
+  75% {
+    box-shadow:
+      #EEEEEE 30px 95px,
+      #EEEEEE 40px 100px,
+      #EEEEEE 50px 60px,
+      rgba(238,238,238,0) 55px 95px,
+      #EEEEEE 70px 80px,
+      #EEEEEE 80px 70px,
+      rgba(238,238,238,0) 110px 120px,
+      rgba(238,238,238,0) 90px 110px;
+  }
+  76% {
+    box-shadow:
+      #EEEEEE 30px 95px,
+      #EEEEEE 40px 100px,
+      #EEEEEE 50px 60px,
+      rgba(238,238,238,0) 55px 35px,
+      #EEEEEE 70px 80px,
+      #EEEEEE 80px 70px,
+      rgba(238,238,238,0) 110px 25px,
+      rgba(238,238,238,0) 90px 15px;
+  }
+  100% {
+    box-shadow:
+      rgba(238,238,238,0) 30px 120px,
+      rgba(238,238,238,0) 40px 120px,
+      #EEEEEE 50px 75px,
+      #EEEEEE 55px 50px,
+      #EEEEEE 70px 100px,
+      #EEEEEE 80px 95px,
+      #EEEEEE 110px 45px,
+      #EEEEEE 90px 35px;
+  }
+}
+
+/*--------------------------------------------------------*/
+
+@media screen and (max-width: 768px) {
+    .body{
+      flex-direction: column-reverse;
+    }
+    .container{
+      height: auto;
+      margin: 20px auto;
+    }
+    .col-1{
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+    .col-2{
+      width: 100%;
+    }
+    .weather-icon{
+      width: 50%;
+      height: inherit;
+    }
+    .icon-container{
+      margin-top: 70px;
+      margin-bottom: 70px;
+    }
+    .weather-message{
+      display: none;
+    }
+}
+
+@media screen and (max-height: 870px) {
+  .wrapper{
+    height: auto;
+  }
+}
